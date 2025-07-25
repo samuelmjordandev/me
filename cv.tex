@@ -1,0 +1,204 @@
+%-------------------------
+% Resume in Latex
+% Author : Sam Jordan
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\textbf{\small#3}} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Samuel Musgrave Jordan} \\ \vspace{1pt}
+    \small +44 7470326602 $|$ \href{mailto:samuelmjordan@outlook.com}{\underline{samuelmjordan@outlook.com}} $|$
+    \href{https://www.linkedin.com/in/samuel-musgrave-jordan}{\underline{linkedin.com/in/samuel-musgrave-jordan/}} $|$
+    \href{https://github.com/jordan12sam}{\underline{github.com/jordan12sam}}
+\end{center}
+
+%----------Summary------------------
+Backend software engineer with 3 years of experience architecting and delivering high-performance Java applications in the fintech sector. Based in London, UK.
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+\resumeSubheading
+  {Engine by Starling}{London, UK}
+  {Software Engineer {\normalfont $|$ Java, Guice, Postgres, TeamCity, Kubernetes, AWS}}{August 2024 -- Present}
+  \resumeItemListStart
+    \resumeItem{Backend developer for a greenfield lending service, delivering a comprehensive platform that interfaces with mobile apps, web management portals, and via API. Implemented core business logic and integration points using Java and Guice.}
+    \resumeItem{Architected a highly configurable lending system using domain-driven design principles, enabling clients to customize application workflows, credit decisioning rules, and market-specific requirements through configuration rather than code changes.}
+    \resumeItem{Successfully delivered the platform to production within an aggressive 9-month timeline, utilizing AWS infrastructure and Kubernetes for scalable deployment while maintaining high availability and performance standards.}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {American Express}{Brighton/London, UK}
+  {Software Engineer {\normalfont $|$ Java, Spring, Postgres, Jenkins}}{September 2022 -- August 2024}
+  \resumeItemListStart
+    \resumeItem{Contributed to American Express's global statements platform, processing over 10 million daily statement documents with a near zero failure rate. Implemented critical features using Java Spring, ensuring scalability and maintaining strict financial compliance standards.}
+    \resumeItem{Spearheaded the development of an innovative bank statement generation service, resulting in annual cost savings exceeding £1M anually. Designed and implemented a fault-tolerant microservice architecture utilizing Kafka for event streaming, Postgres for persistent storage, and Redis for caching.}
+    \resumeItem{Established robust quality assurance practices by implementing comprehensive JUnit test suites. Automated deployment pipelines using Jenkins, enabling continuous integration and deployment.}
+  \resumeItemListEnd
+
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/jordan12sam/Raytracer}{Raytracer}} $|$ \emph{C++, CMake, GLSL, OpenGL}}{}
+          \resumeItemListStart
+            \resumeItem{Implemented a ray tracer in C++, utilizing OpenGL for graphics rendering.}
+            \resumeItem{Features reflections aswell as ambient, specular and diffuse lighting effects to create realistic and visually appealing 3D images.}
+            \resumeItem{Chose an object-oriented design to allow for easy modification and expansion.}
+            \resumeItem{Utilized efficient algorithms and data structures to optimize performance and achieve real-time rendering.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/jordan12sam/Orderbook}{Orderbook}} $|$ \emph{C++, CMake, Gtest}}{}
+          \resumeItemListStart
+            \resumeItem{Developed a limit order book in C++.}
+            \resumeItem{Can place/cancel limit orders. Orders are matched with a standard price-time priority.}
+            \resumeItem{Utilized the correct data structures to optimise performance, including min/max heaps for bid/ask books and doubly linked lists for limit levels. Hashmaps of orders and limit levels are maintained to reduce look-up complexity.}
+            \resumeItem{Built with unit tests in the gtest library and automated via github actions.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java, Python, C/C++, SQL} \\
+     \textbf{Frameworks \& Libraries}{: Spring, Guice} \\
+     \textbf{Developer Tools}{: Redis, Couchbase, Postgres, Kafka, Maven, Gradle, Jenkins, TeamCity, Kubernetes, AWS} \\
+    }}
+ \end{itemize}
+
+ %-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Southampton}{Southampton, UK}
+      {\normalfont{\textit{MEng Aerospace \& Astronautics, Upper Second Class Honours}}}{Sep. 2018 -- Jun. 2022}
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}

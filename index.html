@@ -3,234 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>musdev - coming soon</title>
+    <title>your name - backend engineer</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
-            color: #e2e8f0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .container {
-            text-align: center;
-            max-width: 900px;
-            width: 100%;
-        }
-        
-        .logo {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 800;
-            color: #10b981;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-        
-        .tagline {
-            font-size: clamp(1.2rem, 4vw, 1.5rem);
-            color: #94a3b8;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-        
-        .description {
-            font-size: 1.1rem;
-            color: #64748b;
-            margin-bottom: 48px;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: #333;
+            background: #fafafa;
         }
-        
-        .projects-section {
-            background: rgba(15, 23, 42, 0.6);
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            margin-bottom: 48px;
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
-        
-        .projects-title {
-            font-size: 1.5rem;
-            margin-bottom: 24px;
-            color: #e2e8f0;
-            font-weight: 600;
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
         }
-        
-        .project-card {
-            background: rgba(30, 41, 59, 0.8);
-            padding: 24px;
-            border-radius: 12px;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            margin-bottom: 16px;
-            transition: all 0.2s;
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
         }
-        
-        .project-card:hover {
-            border-color: #10b981;
-            transform: translateY(-2px);
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
         }
-        
-        .project-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #10b981;
-            margin-bottom: 8px;
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
-        
-        .project-link {
-            color: #10b981;
+
+        .social-link {
+            color: #333;
             text-decoration: none;
+            font-weight: 500;
             transition: color 0.2s;
         }
-        
-        .project-link:hover {
-            color: #059669;
+
+        .social-link:hover {
+            color: #007acc;
         }
-        
+
+        .cv-download {
+            display: inline-block;
+            background: #007acc;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .cv-download:hover {
+            background: #005a99;
+        }
+
+        .section {
+            margin: 3rem 0;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .about {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            min-height: 250px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .project-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
         .project-description {
-            color: #94a3b8;
-            line-height: 1.5;
-            margin-bottom: 12px;
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            flex: 1;
         }
-        
-        .project-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(16, 185, 129, 0.1);
-            color: #10b981;
-            padding: 4px 12px;
+
+        .project-footer {
+            margin-top: auto;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: #f0f0f0;
+            padding: 0.25rem 0.5rem;
             border-radius: 12px;
-            font-size: 14px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #007acc;
+            text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 500;
         }
-        
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: #10b981;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
+
+        .project-link:hover {
+            text-decoration: underline;
         }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .contact-section {
-            background: rgba(15, 23, 42, 0.8);
-            padding: 32px;
-            border-radius: 16px;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        
-        .contact-title {
-            font-size: 1.2rem;
-            margin-bottom: 16px;
-            color: #e2e8f0;
-        }
-        
-        .contact-description {
-            color: #94a3b8;
-            margin-bottom: 24px;
-            font-size: 14px;
-        }
-        
-        .email-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #334155;
+
+        .skills {
+            background: white;
+            padding: 2rem;
             border-radius: 8px;
-            background: rgba(30, 41, 59, 0.8);
-            color: #e2e8f0;
-            font-size: 16px;
-            margin-bottom: 16px;
-            transition: border-color 0.2s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        
-        .email-input:focus {
-            outline: none;
-            border-color: #10b981;
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
         }
-        
-        .contact-btn {
-            width: 100%;
-            padding: 12px;
-            background: #10b981;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s;
+
+        .skill-category h3 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: #333;
         }
-        
-        .contact-btn:hover {
-            background: #059669;
+
+        .skill-list {
+            list-style: none;
         }
-        
-        .footer {
-            margin-top: 60px;
-            color: #475569;
-            font-size: 14px;
+
+        .skill-list li {
+            padding: 0.25rem 0;
+            color: #666;
         }
-        
+
         @media (max-width: 768px) {
-            .projects-section {
-                padding: 24px;
+            .container {
+                padding: 1rem;
             }
-            
-            .contact-section {
-                padding: 24px;
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="logo">musdev</h1>
-        
-        <p class="tagline">
-            by sam jordan
-        </p>
-        
-        <div class="projects-section">
-            <h2 class="projects-title">current projects</h2>
-            
+<div class="container">
+    <header>
+        <h1>Samuel M. Jordan</h1>
+        <p class="subtitle">Software Engineer</p>
+
+        <div class="social-links">
+            <a href="https://Github.com/jordan12sam" class="social-link">Github</a>
+            <a href="https://linkedin.com/in/samuel-musgrave-jordan" class="social-link">Linkedin</a>
+            <a href="mailto:samuelmjordan@outlook.com" class="social-link">Email</a>
+            <a href="/out/cv.pdf" class="social-link">Resume</a>
+        </div>
+    </header>
+    <section class="section">
+        <div class="projects-grid">
             <div class="project-card">
-                <h3 class="project-name">
-                    <a href="https://axolhost.com" class="project-link">axolhost</a>
-                </h3>
-                <p class="project-description">
-                    premium minecraft server hosting for european players. lightning-fast deployment, gdpr compliant infrastructure, and ddos protection.
-                </p>
-                <div class="project-status">
-                    <span class="status-dot"></span>
-                    launching soon
+                <div class="project-content">
+                    <div class="project-title">Video game server hosting platform</div>
+                    <div class="project-description">
+                        Automated game server provisioning with stripe billing integration. Handles resource management via async job queues, includes provisioning and configuring cloud servers, managing dns records and spawning game processes.
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="tech-stack">
+                        <span class="tech-tag">java</span>
+                        <span class="tech-tag">spring boot</span>
+                        <span class="tech-tag">postgres</span>
+                        <span class="tech-tag">next-js</span>
+                        <span class="tech-tag">typescript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Github</a>
+                        <a href="#" class="project-link">Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-title">Personal media server</div>
+                    <div class="project-description">
+                        Streaming platform with automatic library scanning and tmdb metadata integration. Supports http range requests for seamless playback and seeking either in-browser or via media players like VLC.
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="tech-stack">
+                        <span class="tech-tag">ocaml</span>
+                        <span class="tech-tag">dream</span>
+                        <span class="tech-tag">postgres</span>
+                        <span class="tech-tag">htmx</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Github</a>
+                        <a href="#" class="project-link">Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-title">Raytracer</div>
+                    <div class="project-description">
+                        Gpu-accelerated raytracer implementing physically-based lighting and recursive reflections. Renders complex scenes entirely in fragment shaders.
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="tech-stack">
+                        <span class="tech-tag">c++</span>
+                        <span class="tech-tag">open-gl</span>
+                        <span class="tech-tag">glsl</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Github</a>
+                        <a href="#" class="project-link">Video</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-title">Orderbook</div>
+                    <div class="project-description">
+                        Low-latency orderbook engine with price-time priority matching. Optimized data structures for high-frequency trading scenarios.
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="tech-stack">
+                        <span class="tech-tag">c++</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Github</a>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="footer">
-            musdev limited 2025
-        </div>
-    </div>
+    </section>
+</div>
 </body>
 </html>
