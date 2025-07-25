@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <title>Samuel M. Jordan</title>
     <style>
         * {
@@ -39,7 +40,22 @@
         .subtitle {
             font-size: 1.2rem;
             color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            color: #666;
             margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .contact-info a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: #007acc;
         }
 
         .social-links {
@@ -225,11 +241,14 @@
     <header>
         <h1>Samuel M. Jordan</h1>
         <p class="subtitle">Software Engineer</p>
+        <div class="contact-info">
+            <a href="tel:+447470326602">+44 7470326602</a> ·
+            <a href="mailto:samuelmjordan@outlook.com">samuelmjordan@outlook.com</a>
+        </div>
 
         <div class="social-links">
             <a href="https://Github.com/jordan12sam" class="social-link">Github</a>
             <a href="https://linkedin.com/in/samuel-musgrave-jordan" class="social-link">Linkedin</a>
-            <a href="mailto:samuelmjordan@outlook.com" class="social-link">Email</a>
             <a href="/out/cv.pdf" class="social-link">Resume</a>
         </div>
     </header>
@@ -239,7 +258,7 @@
                 <div class="project-content">
                     <div class="project-title">Video game server hosting platform</div>
                     <div class="project-description">
-                        Automated game server provisioning with stripe billing integration. Handles resource management via async job queues, includes provisioning and configuring cloud servers, managing dns records and spawning game processes.
+                        Minecraft server hosting platform with stripe billing and clerk authentication integration. Handles resource management via async job queues, includes provisioning and configuring cloud servers, managing dns records and spawning game processes.
                     </div>
                 </div>
                 <div class="project-footer">
