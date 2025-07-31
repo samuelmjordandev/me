@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <title>Samuel M. Jordan - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #fafafa;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-link {
+            color: #007acc;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .nav-link:hover {
+            background: #e6f3ff;
+        }
+
+        .pdf-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            min-height: 80vh;
+        }
+
+        .pdf-embed {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
+
+        .fallback {
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .fallback a {
+            color: #007acc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .fallback a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .pdf-embed {
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>curriculum vitae</h1>
+        <div class="nav-links">
+            <a href="/" class="nav-link">← back to portfolio</a>
+            <a href="/out/cv.pdf" class="nav-link" download>download pdf</a>
+        </div>
+    </header>
+
+    <div class="pdf-container">
+        <iframe src="/out/cv.pdf" class="pdf-embed" type="application/pdf">
+            <div class="fallback">
+                <p>your browser can't display this pdf.</p>
+                <p><a href="/out/cv.pdf">click here to download the cv instead</a></p>
+            </div>
+        </iframe>
+    </div>
+</div>
+</body>
+</html>
