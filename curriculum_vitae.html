@@ -62,28 +62,21 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             overflow: hidden;
             min-height: 80vh;
+            position: relative;
         }
 
-        .pdf-embed {
+        #pdfCanvas {
             width: 100%;
-            height: 80vh;
-            border: none;
+            height: auto;
+            display: block;
         }
 
-        .fallback {
-            padding: 2rem;
+
+
+        .loading {
             text-align: center;
+            padding: 3rem;
             color: #666;
-        }
-
-        .fallback a {
-            color: #007acc;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .fallback a:hover {
-            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -97,8 +90,9 @@
                 gap: 1rem;
             }
 
-            .pdf-embed {
-                height: 70vh;
+            .controls {
+                flex-wrap: wrap;
+                gap: 0.5rem;
             }
         }
     </style>
@@ -106,21 +100,91 @@
 <body>
 <div class="container">
     <header>
-        <h1>curriculum vitae</h1>
+        <h1>Curriculum Vitae</h1>
         <div class="nav-links">
-            <a href="/" class="nav-link">← back to portfolio</a>
-            <a href="/out/cv.pdf" class="nav-link" download>download pdf</a>
+            <a href="/" class="nav-link">← Back</a>
+            <a href="/out/cv.pdf" class="nav-link" download>Download pdf</a>
         </div>
     </header>
 
     <div class="pdf-container">
-        <iframe src="https://docs.google.com/gview?url=https://samuelmjordan.dev/out/cv.pdf&embedded=true">
-            <div class="fallback">
-                <p>your browser can't display this pdf.</p>
-                <p><a href="/out/cv.pdf">click here to download the cv instead</a></p>
-            </div>
-        </iframe>
+        <div class="loading" id="loading">loading pdf...</div>
+        <canvas id="pdfCanvas" style="display: none;"></canvas>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+    // pdf.js setup
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    let pdfDoc = null;
+    let pageNum = 1;
+    let pageRendering = false;
+    let pageNumPending = null;
+    let scale = 2.0;
+    const canvas = document.getElementById('pdfCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function renderPage(num) {
+        pageRendering = true;
+
+        pdfDoc.getPage(num).then(function(page) {
+            const viewport = page.getViewport({scale: scale});
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+
+            const renderTask = page.render(renderContext);
+
+            renderTask.promise.then(function() {
+                pageRendering = false;
+                if (pageNumPending !== null) {
+                    renderPage(pageNumPending);
+                    pageNumPending = null;
+                }
+
+                document.getElementById('loading').style.display = 'none';
+                canvas.style.display = 'block';
+            });
+        });
+
+        document.getElementById('pageNum').textContent = num;
+    }
+
+    function queueRenderPage(num) {
+        if (pageRendering) {
+            pageNumPending = num;
+        } else {
+            renderPage(num);
+        }
+    }
+
+    function onPrevPage() {
+        if (pageNum <= 1) return;
+        pageNum--;
+        queueRenderPage(pageNum);
+    }
+
+    function onNextPage() {
+        if (pageNum >= pdfDoc.numPages) return;
+        pageNum++;
+        queueRenderPage(pageNum);
+    }
+
+    // load pdf
+    pdfjsLib.getDocument('/out/cv.pdf').promise.then(function(pdfDoc_) {
+        pdfDoc = pdfDoc_;
+        renderPage(pageNum);
+    }).catch(function(error) {
+        document.getElementById('loading').innerHTML =
+            `<p>failed to load pdf</p><p><a href="/out/cv.pdf">download instead</a></p>`;
+        console.error('pdf loading error:', error);
+    });
+</script>
 </body>
 </html>
