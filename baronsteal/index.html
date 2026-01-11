@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Baron Steal - Coming Soon</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Sans:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root {
+                --bg-dark: #0a0e16;
+                --bg-card: #131820;
+                --accent-gold: #c8aa6e;
+                --accent-blue: #0bc5ea;
+                --text-primary: #f0f0f0;
+                --text-muted: #8b92a8;
+                --border: #1f2937;
+            }
+
+            body {
+                font-family: "Instrument Sans", sans-serif;
+                background: var(--bg-dark);
+                color: var(--text-primary);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+
+            /* animated gradient background */
+            body::before {
+                content: "";
+                position: fixed;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background:
+                    radial-gradient(
+                        circle at 20% 50%,
+                        rgba(200, 170, 110, 0.08) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        circle at 80% 80%,
+                        rgba(11, 197, 234, 0.08) 0%,
+                        transparent 50%
+                    );
+                animation: rotateGradient 20s linear infinite;
+                z-index: -1;
+            }
+
+            @keyframes rotateGradient {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+
+            /* header */
+            header {
+                padding: 2rem 0;
+                border-bottom: 1px solid var(--border);
+                backdrop-filter: blur(10px);
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                background: rgba(10, 14, 22, 0.8);
+            }
+
+            .logo {
+                font-family: "Archivo Black", sans-serif;
+                font-size: 1.5rem;
+                letter-spacing: -0.02em;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent-gold),
+                    var(--accent-blue)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                display: inline-block;
+                animation: slideInLeft 0.6s ease-out;
+            }
+
+            @keyframes slideInLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(-30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            /* hero section */
+            .hero {
+                padding: 8rem 0 6rem;
+                text-align: center;
+                position: relative;
+            }
+
+            .hero h1 {
+                font-family: "Archivo Black", sans-serif;
+                font-size: clamp(2.5rem, 8vw, 5rem);
+                line-height: 1.1;
+                margin-bottom: 1.5rem;
+                letter-spacing: -0.03em;
+                animation: fadeInUp 0.8s ease-out 0.2s both;
+            }
+
+            .hero h1 .highlight {
+                background: linear-gradient(
+                    135deg,
+                    var(--accent-gold),
+                    var(--accent-blue)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+                color: var(--text-muted);
+                max-width: 600px;
+                margin: 0 auto 2rem;
+                animation: fadeInUp 0.8s ease-out 0.4s both;
+            }
+
+            .coming-soon-badge {
+                display: inline-block;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent-gold),
+                    var(--accent-blue)
+                );
+                padding: 0.75rem 2rem;
+                border-radius: 8px;
+                font-family: "Archivo Black", sans-serif;
+                font-size: 1.1rem;
+                letter-spacing: 0.05em;
+                margin-bottom: 2rem;
+                animation:
+                    fadeInUp 0.8s ease-out 0.6s both,
+                    pulse 2s ease-in-out infinite;
+            }
+
+            @keyframes pulse {
+                0%,
+                100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+            }
+
+            .notify-form {
+                max-width: 500px;
+                margin: 0 auto;
+                animation: fadeInUp 0.8s ease-out 0.8s both;
+            }
+
+            .notify-form input {
+                width: 100%;
+                padding: 1rem 1.5rem;
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                color: var(--text-primary);
+                font-size: 1rem;
+                font-family: "Instrument Sans", sans-serif;
+                transition: border-color 0.3s;
+                margin-bottom: 1rem;
+            }
+
+            .notify-form input:focus {
+                outline: none;
+                border-color: var(--accent-gold);
+            }
+
+            .notify-form input::placeholder {
+                color: var(--text-muted);
+            }
+
+            .notify-form button {
+                width: 100%;
+                padding: 1rem 2rem;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent-gold),
+                    var(--accent-blue)
+                );
+                border: none;
+                border-radius: 8px;
+                color: var(--bg-dark);
+                font-family: "Archivo Black", sans-serif;
+                font-size: 1rem;
+                letter-spacing: 0.05em;
+                cursor: pointer;
+                transition:
+                    transform 0.2s,
+                    opacity 0.2s;
+            }
+
+            .notify-form button:hover {
+                transform: translateY(-2px);
+            }
+
+            .notify-form button:active {
+                transform: translateY(0);
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* features grid */
+            .features {
+                padding: 6rem 0;
+                opacity: 0.7;
+            }
+
+            .section-title {
+                font-family: "Archivo Black", sans-serif;
+                font-size: 2.5rem;
+                text-align: center;
+                margin-bottom: 1rem;
+                letter-spacing: -0.02em;
+            }
+
+            .section-subtitle {
+                text-align: center;
+                color: var(--text-muted);
+                margin-bottom: 4rem;
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+            }
+
+            .feature-card {
+                background: var(--bg-card);
+                padding: 2rem;
+                border-radius: 12px;
+                border: 1px solid var(--border);
+                transition:
+                    transform 0.3s,
+                    border-color 0.3s;
+                animation: fadeInUp 0.6s ease-out both;
+            }
+
+            .feature-card:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+            .feature-card:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+            .feature-card:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+            .feature-card:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+            .feature-card:nth-child(5) {
+                animation-delay: 0.5s;
+            }
+            .feature-card:nth-child(6) {
+                animation-delay: 0.6s;
+            }
+
+            .feature-card:hover {
+                transform: translateY(-5px);
+                border-color: var(--accent-gold);
+            }
+
+            .feature-icon {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+                display: block;
+            }
+
+            .feature-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 0.75rem;
+                color: var(--text-primary);
+            }
+
+            .feature-card p {
+                color: var(--text-muted);
+                font-size: 0.95rem;
+            }
+
+            /* footer */
+            footer {
+                padding: 3rem 0;
+                border-top: 1px solid var(--border);
+                text-align: center;
+                color: var(--text-muted);
+                margin-top: 6rem;
+            }
+
+            footer a {
+                color: var(--accent-gold);
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+
+            footer a:hover {
+                color: var(--accent-blue);
+            }
+
+            /* responsive */
+            @media (max-width: 768px) {
+                .hero {
+                    padding: 4rem 0 3rem;
+                }
+
+                .features {
+                    padding: 3rem 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="logo">Baron Steal</div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <h1>
+                        Never Miss A
+                        <span class="highlight">Baron Steal</span> Again
+                    </h1>
+                    <p>
+                        Real-time notifications for every kill, objective, and
+                        pentakill in competitive League of Legends.
+                    </p>
+                    <div class="coming-soon-badge">COMING SOON</div>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <h2 class="section-title">What's Coming</h2>
+                    <p class="section-subtitle">
+                        Features we're building for launch
+                    </p>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <span class="feature-icon">⚡</span>
+                            <h3>Instant Alerts</h3>
+                            <p>
+                                Get notified the moment first blood drops or
+                                Baron is taken. No delays, no spoilers.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🎯</span>
+                            <h3>Hyper-Customizable</h3>
+                            <p>
+                                Choose exactly which events, teams, and
+                                tournaments you want to follow. Your feed, your
+                                rules.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">💬</span>
+                            <h3>Discord & Telegram</h3>
+                            <p>
+                                Receive alerts where you already hang out.
+                                Seamless integration with your favorite
+                                platforms.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🏆</span>
+                            <h3>All Major Leagues</h3>
+                            <p>
+                                LCK, LPL, LEC, LCS, and more. Comprehensive
+                                coverage of competitive League worldwide.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">📊</span>
+                            <h3>Detailed Stats</h3>
+                            <p>
+                                Post-match breakdowns with KDA, gold diff,
+                                objectives, and everything you need to know.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🔒</span>
+                            <h3>Reliable & Accurate</h3>
+                            <p>
+                                Built with enterprise-grade data infrastructure.
+                                Never miss a moment that matters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+    </body>
+</html>
