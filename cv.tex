@@ -85,15 +85,15 @@
 
 %----------HEADING----------
 \begin{center}
-\textbf{\Huge \scshape Samuel Musgrave Jordan} \\ \vspace{1pt}
-\small +44 7470326602 $|$ \href{mailto:samuelmjordan@outlook.com}{\underline{samuelmjordan@outlook.com}} \\ \vspace{4pt}
-\href{https://www.linkedin.com/in/samuel-musgrave-jordan}{\underline{linkedin}} $|$
-\href{https://github.com/samuelmjordan}{\underline{github}} $|$
-\href{https://samuelmjordan.dev}{\underline{samuelmjordan.dev}}
+	\textbf{\Huge \scshape Samuel Musgrave Jordan} \\ \vspace{1pt}
+	\small +44 7470326602 $|$ \href{mailto:samuelmjordan@outlook.com}{\underline{samuelmjordan@outlook.com}} \\ \vspace{4pt}
+	\href{https://www.linkedin.com/in/samuel-musgrave-jordan}{\underline{linkedin}} $|$
+	\href{https://github.com/samuelmjordan}{\underline{github}} $|$
+	\href{https://samuelmjordan.dev}{\underline{samuelmjordan.dev}}
 \end{center}
 
 %----------Summary------------------
-Backend software engineer with 3 years of experience architecting and delivering high-performance Java applications in the fintech sector. Based in London, UK.
+Backend engineer building the lending origination platform at Engine by Starling. 3 years experience with Java, event-driven systems, and fintech platforms at scale. Based in London, UK.
 
 %-----------EXPERIENCE-----------
 \section{Experience}
@@ -104,58 +104,55 @@ Backend software engineer with 3 years of experience architecting and delivering
 {Software Engineer {\normalfont $|$ Java, Guice, Postgres, TeamCity, Kubernetes, AWS}}{August 2024 -- Present}
 \resumeItemListStart
 \resumeItem{Backend developer for Engine, a bank-in-a-box SaaS product operating as core infrastructure for banks worldwide.}
-\resumeItem{Built greenfield lending origination service from scratch, implementing API endpoints, business logic, and payment processing using Java and Guice.}
-\resumeItem{Designed highly configurable system enabling banks to customize credit rules, application workflows, and compliance requirements through configuration rather than code changes.}
-\resumeItem{Delivered platform to production within aggressive 9-month timeline, deployed on AWS with Kubernetes orchestration.}
-\resumeItem{Led a small cross-functional subteam developing web management portal, coordinating backend services with frontend integration. Coordinated with product managers and clients directly.}
+\resumeItem{Built lending origination platform from scratch as graph-based state machine—clients design application journeys with automated decisioning, credit checks, fraud scoring, and 3rd party webhook integrations and more.}
+\resumeItem{Architected async job orchestration system using Postgres-backed queues with exponential backoff and retry semantics, enabling reliable execution of multi-step workflows across system actions and applicant inputs.}
+\resumeItem{Delivered platform from conception to production within 9-month timeline, handling 10k+ concurrent in-flight applications.}
+\resumeItem{Led 3-person subteam developing visual configuration editor (drag-and-drop node-based UI) with visitor pattern validation engine to prevent invalid graphs including cycle detection and unreachable node identification.}
+\resumeItem{Implemented immutable config versioning with draft/live promotion—clients iterate on drafts freely, then deploy atomically with zero-downtime cutover for new applications.}
+\resumeItem{Scaled clients from single bespoke lending product per bank to 6+ self-configured products, eliminating weeks of engineering work per product launch.}
+\resumeItem{Built agent management portal with real-time application filtering, document review, status tracking, and manual intervention tooling across multiple banking clients.}
 \resumeItemListEnd
 
 \resumeSubheading
 {American Express}{Brighton/London, UK}
 {Software Engineer {\normalfont $|$ Java, Spring, Postgres, Jenkins}}{September 2022 -- August 2024}
 \resumeItemListStart
-\resumeItem{Contributed to global statements platform processing 10M+ daily documents with near-zero failure rate using Java Spring.}
-\resumeItem{Built a platform to handle bank statement generation in-house, saving £1M+ annually. Implemented microservice architecture with Kafka, Postgres, and Redis.}
-\resumeItem{Automated deployment pipelines using Jenkins and established comprehensive JUnit test coverage.}
+\resumeItem{Maintained global statements platform processing 10M+ daily documents, participating in on-call rotation for production incident response and resolution.}
+\resumeItem{Built internal dev portal for dead letter queue management in event-driven architecture, enabling self-service job replay during incidents and reducing mean time to recovery.}
+\resumeItem{Delivered in-house statement generation platform replacing external vendor, saving £1M+ annually through microservice architecture with Kafka, Postgres, and Redis.}
+\resumeItem{Established CI/CD practices with Jenkins pipelines and comprehensive test coverage across services.}
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
-\section{Projects}
+\section{Personal Projects}
 \resumeSubHeadingListStart
 \resumeProjectHeading
-{\textbf{\href{https://axolhost.com}{Game Server Hosting Platform}} $|$ \normalfont{Java, Spring, Next.js, TypeScript, Postgres}}{}
+{\textbf{\href{https://axolhost.com}{Game Server Hosting Platform}} $|$ \normalfont{Java, Spring, Next.js, Stripe}}{}
 \resumeItemListStart
-\resumeItem{Built Minecraft server hosting platform with Stripe billing and authentication integration.}
-\resumeItem{Implemented cloud server provisioning, DNS management, and game process spawning via async job queues.}
-\resumeItem{Deployed live platform serving real customers with automated resource management.}
+\resumeItem{Live Minecraft hosting platform with automated provisioning, Stripe billing, and paying customers.}
 \resumeItemListEnd
 \resumeProjectHeading
-{\textbf{\href{https://github.com/samuelmjordan/media-server}{Personal Media Server}} $|$ \normalfont{OCaml, Dream, Postgres, HTMX}}{}
+{\textbf{\href{https://github.com/samuelmjordan/media-server}{Personal Media Server}} $|$ \normalfont{OCaml, Dream, HTMX}}{}
 \resumeItemListStart
-\resumeItem{Developed streaming platform with automatic library scanning and TMDB metadata integration.}
-\resumeItem{Implemented HLS protocol requests for seamless video playback and seeking in browsers and VLC.}
-\resumeItem{Utilised FFMPEG for live video transcoding.}
-\resumeItem{Built using functional programming principles with OCaml.}
+\resumeItem{Self-hosted streaming platform with automatic library scanning, metadata integration, and HLS transcoding.}
 \resumeItemListEnd
 \resumeProjectHeading
 {\textbf{\href{https://github.com/samuelmjordan/raytracer}{GPU Raytracer}} $|$ \normalfont{C++, OpenGL, GLSL}}{}
 \resumeItemListStart
-\resumeItem{Implemented GPU-accelerated raytracer with physically-based lighting and recursive reflections.}
-\resumeItem{Renders complex 3D scenes entirely in fragment shaders for real-time performance.}
-\resumeItem{Optimized rendering pipeline using efficient algorithms and OpenGL best practices.}
+\resumeItem{GPU-accelerated raytracer with physically-based lighting rendered entirely in fragment shaders.}
 \resumeItemListEnd
 \resumeSubHeadingListEnd
 
 %-----------PROGRAMMING SKILLS-----------
 \section{Technical Skills}
 \begin{itemize}[leftmargin=0.15in, label={}]
-\small{\item{
-\textbf{Languages}{: Java, Python, C/C++, OCaml, TypeScript, SQL} \\
-\textbf{Frameworks \& Libraries}{: Spring, Guice, Next.js, Dream} \\
-\textbf{Developer Tools}{: Redis, Postgres, Kafka, Maven, Gradle, Jenkins, TeamCity, Kubernetes, AWS, Stripe} \\
-}}
+	\small{\item{
+	      \textbf{Languages}{: Java, Python, C/C++, OCaml, TypeScript, SQL} \\
+	      \textbf{Frameworks \& Libraries}{: Spring, Guice, Next.js, Dream} \\
+	      \textbf{Developer Tools}{: Redis, Postgres, Kafka, Maven, Gradle, Jenkins, TeamCity, Kubernetes, AWS, Stripe} \\
+	      }}
 \end{itemize}
 
 %-----------EDUCATION-----------
